@@ -19,9 +19,11 @@
 
       <nav class="navbar">
          <a href="admin_page.php">Trang chủ</a>
+         <a href="admin_news.php">Tin tức</a>
          <a href="admin_products.php">Sản phẩm</a>
          <a href="admin_category.php">Danh mục</a>
          <a href="admin_orders.php">Đơn hàng</a>
+         <a href="admin_employees.php">Nhân viên</a>
          <a href="admin_users.php">Người dùng</a></a>
          <a href="admin_contacts.php">Tin nhắn</a>
          <a href="admin_statistical.php">Thống kê</a>
