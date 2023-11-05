@@ -71,7 +71,6 @@
               <tr>
                   <th>ID</th>
                   <th>Tên sản phẩm</th>
-                  <th>Thương hiệu </th>
                   <th>Mô tả</th>
                   <th>Số lượng sản phẩm đã bán</th>
               </tr>
@@ -82,9 +81,6 @@
 						</td>
 						<td>
 							<label style="width: auto"><?php echo $item['name']; ?></label>
-						</td>
-						<td>
-							<label style="width: auto"><?php echo $item['trademark']; ?></label>
 						</td>
 						<td>
 							<label style="width: auto"><?php echo $item['describes']; ?></label>
@@ -108,7 +104,6 @@
               <tr>
                   <th>ID</th>
                   <th>Tên sản phẩm</th>
-                  <th>Thương hiệu</th>
                   <th>Mô tả</th>
                   <th>Số lượng còn</th>
               </tr>
@@ -119,9 +114,6 @@
 						</td>
 						<td>
 							<label style="width: auto"><?php echo $item['name']; ?></label>
-						</td>
-						<td>
-							<label style="width: auto"><?php echo $item['trademark']; ?></label>
 						</td>
 						<td>
 							<label style="width: auto"><?php echo $item['describes']; ?></label>
