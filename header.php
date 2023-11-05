@@ -29,6 +29,7 @@
 
          <nav class="navbar">
             <a href="home.php">Trang chủ</a>
+            <a href="news.php">Tin tức</a>
             <a href="about.php">Thông tin</a>
             <a href="shop.php">Cửa hàng</a>
             <a href="contact.php">Liên hệ</a>
