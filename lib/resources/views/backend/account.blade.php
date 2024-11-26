@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'Danh sách tài khoản')
+@section('title', 'Account List')
 @section('main')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -17,24 +17,24 @@
         cursor: pointer;
     }
 </style>
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Tài khoản khách hàng</h1>
-			</div>
-		</div><!--/.row-->
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Customer Accounts</h1>
+            </div>
+        </div><!--/.row-->
 
-		<div class="row">
-			<div class="col-xs-12 col-md-5 col-lg-6">
+        <div class="row">
+            <div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        Danh sách tài khoản
+                        Account List
                     </div>
                     <div class="panel-body">
                         @foreach($accounts as $account)
                         <div class="account-item">
-						    <a href="{{ asset('admin/account/delete/' . $account->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
-                            <label class="customer-id">ID khách hàng: </label>
+                            <a href="{{ asset('admin/account/delete/' . $account->id) }}" onclick="return confirm('Are you sure you want to delete this account?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                            <label class="customer-id">Customer ID: </label>
                                 {{ $account->id }}
                             <br>
                             <label class="customer-phone">Email: </label>
@@ -44,7 +44,7 @@
                         @endforeach
                     </div>
                 </div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 @stop

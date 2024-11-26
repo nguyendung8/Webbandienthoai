@@ -67,7 +67,7 @@ class CartController extends Controller
 
             $message->to($email, $name);
 
-            $message->subject('Xác nhận hóa đơn mua hàng LUXELUSH');
+            $message->subject('Order Confirmation from Anh Mobile');
 
         });
         Cart::destroy();
@@ -84,6 +84,6 @@ class CartController extends Controller
         $favourite_prod->favou_product = $id;
 
         $favourite_prod->save();
-        return back()->with('success', 'Thêm sản phẩm vào danh sách yêu thích thành công!');
+        return back()->with('success', 'Product added to favourites successfully!');
     }
 }

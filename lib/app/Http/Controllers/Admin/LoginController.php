@@ -23,12 +23,12 @@ class LoginController extends Controller
         }
         if(Auth::attempt($arr, $remember)) {
             if (auth()->user()->level == 1) {
-                return redirect()->intended('admin/home')->with('success', 'Đăng nhập thành công!');
+                return redirect()->intended('admin/home')->with('success', 'Login successful!');
             } else {
-                return redirect()->intended('/')->with('success', 'Đăng nhập thành công!');
+                return redirect()->intended('/')->with('success', 'Login successful!');
             }
         } else {
-            return back()->withInput()->with('error', 'Tài khoản hoặc mật khẩu chưa đúng');
+            return back()->withInput()->with('error', 'Incorrect username or password');
         }
     }
 }

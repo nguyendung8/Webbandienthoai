@@ -1,15 +1,14 @@
-
 <link rel="stylesheet" href="css/email.css">
 <font face="Arial">
-	<div id="wrap-inner">
-		<div id="xac-nhan">
-			<br>
-			<p align="justify">
-				<b>Đơn hàng của bạn đã được xác nhận và sẽ sớm được vận chuyển</b><br />
-				• Sản phẩm của Quý khách sẽ được chuyển đến Địa chỉ có trong phần Thông tin Khách hàng của chúng Tôi sau thời gian 2 đến 3 ngày, tính từ thời điểm này.<br />
-				• Nhân viên giao hàng sẽ liên hệ với Quý khách qua Số Điện thoại trước khi giao hàng 24 tiếng.<br />
-				<b><br />Cám ơn Quý khách đã sử dụng Sản phẩm của Công ty chúng Tôi!</b>
-			</p>
-		</div>
-	</div>
+    <div id="wrap-inner">
+        <div id="xac-nhan">
+            <br>
+            <p align="justify">
+                <b>Your order has been confirmed and will be shipped soon</b><br />
+                • Your product will be delivered to the address in the Customer Information section within 2 to 3 days from now.<br />
+                • The delivery staff will contact you via phone 24 hours before delivery.<br />
+                <b><br />Thank you for using our company's products!</b>
+            </p>
+        </div>
+    </div>
 </font>

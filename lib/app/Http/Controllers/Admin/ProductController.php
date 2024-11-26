@@ -42,7 +42,7 @@ class ProductController extends Controller
         $request->img->storeAs('avatar',$filename);
         $product->save();
 
-        return redirect()->intended('admin/product')->with('success', 'Thêm sản phẩm thành công!');;
+        return redirect()->intended('admin/product')->with('success', 'Product added successfully!');
     }
 
     public function getEditProduct($id)
@@ -70,15 +70,15 @@ class ProductController extends Controller
         $request->img->storeAs('avatar',$img);
         }
         $product->save();
-        return redirect()->intended('admin/product')->with('success', 'Chỉnh sửa sản phẩm thành công!');;
-    }
+        return redirect()->intended('admin/product')->with('success', 'Product updated successfully!');
+        }
 
-    public function getDeleteProduct($id)
-    {
+        public function getDeleteProduct($id)
+        {
         $product = VpProduct::find($id);
 
         $product->delete();
 
-        return redirect()->intended('admin/product')->with('success', 'Xóa sản phẩm thành công!');;
+        return redirect()->intended('admin/product')->with('success', 'Product deleted successfully!');
     }
 }

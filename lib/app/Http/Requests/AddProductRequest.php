@@ -31,8 +31,8 @@ class AddProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'img.image' => 'Vui lòng upload file ảnh',
-            'product_name.unique'=>'Tên sản phẩm đã tồn tại'
+            'img.image' => 'Please upload an image file',
+            'product_name.unique' => 'Product name already exists'
         ];
     }
 }

@@ -17,7 +17,7 @@ class OrderUserController extends Controller
     public function receivedOrder($id)
     {
         $order = VpOrder::find($id);
-        $order->order_status = 'Hoàn thành';
+        $order->order_status = 'Completed';
 
         $order->save();
         return redirect()->intended('/list-order');

@@ -4,7 +4,7 @@
         <base href="{{ asset('public/layout/backend')}}/">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>@yield('title') |  LUXELUSH</title>
+        <title>@yield('title') | Anh Mobile</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/datepicker3.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
@@ -21,12 +21,12 @@
             @endif
             <div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{ asset('admin/home') }}"> LUXELUSH Admin</a>
+				<a class="navbar-brand" href="{{ asset('admin/home') }}">Anh Mobile Admin</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{ Auth::user()->email }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ asset('logout') }}"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Đăng xuất</a></li>
+							<li><a href="{{ asset('logout') }}"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg>Logout</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -38,14 +38,14 @@
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
-			<li class="home-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/home') }}"><i style="font-size: 17px; margin-right: 8px;" class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
-			<li class="account-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/account') }}"><i style="font-size: 17px; margin-right: 7px;" class="fa fa-users" aria-hidden="true"></i> Người dùng</a></li>
-			<li class="product-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/product') }}"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Sản phẩm</a></li>
-			<li class="category-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/category') }}"><svg class="glyph stroked app-window-with-content"><use xlink:href="#stroked-app-window-with-content"></use></svg> Danh mục</a></li>
-			<li class="order-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/order') }}"><i style="font-size: 18px; margin-right: 9px;" class="fa fa-cart-plus" aria-hidden="true"></i> Đơn hàng</a></li>
-			<li class="message-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/message') }}"><svg class="glyph stroked empty-message"><use xlink:href="#stroked-empty-message"></use></svg> Tin nhắn</a></li>
-			<li class="comment-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/comment') }}"><i style="font-size: 18px; margin-right: 8px;" class="fa fa-pencil-square-o" aria-hidden="true"></i> Bình luận</a></li>
-			<li class="comment-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/revenue') }}"><i style="font-size: 16px; margin-right: 8px;" class="fa fa-money" aria-hidden="true"></i> Doanh thu</a></li>
+            <li class="home-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/home') }}"><i style="font-size: 17px; margin-right: 8px;" class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+            <li class="account-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/account') }}"><i style="font-size: 17px; margin-right: 7px;" class="fa fa-users" aria-hidden="true"></i> Users</a></li>
+            <li class="product-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/product') }}"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Products</a></li>
+            <li class="category-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/category') }}"><svg class="glyph stroked app-window-with-content"><use xlink:href="#stroked-app-window-with-content"></use></svg> Categories</a></li>
+            <li class="order-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/order') }}"><i style="font-size: 18px; margin-right: 9px;" class="fa fa-cart-plus" aria-hidden="true"></i> Orders</a></li>
+            <li class="message-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/message') }}"><svg class="glyph stroked empty-message"><use xlink:href="#stroked-empty-message"></use></svg> Messages</a></li>
+            <li class="comment-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/comment') }}"><i style="font-size: 18px; margin-right: 8px;" class="fa fa-pencil-square-o" aria-hidden="true"></i> Comments</a></li>
+            <li class="revenue-btn"><a style="display: flex !important; align-items: center;" href="{{ asset('admin/revenue') }}"><i style="font-size: 16px; margin-right: 8px;" class="fa fa-money" aria-hidden="true"></i> Revenue</a></li>
             <li role="presentation" class="divider"></li>
 		</ul>
 	</div><!--/.sidebar-->

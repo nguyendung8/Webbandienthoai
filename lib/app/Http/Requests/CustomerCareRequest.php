@@ -32,10 +32,10 @@ class CustomerCareRequest extends FormRequest
     public function messages()
     {
         return [
-            'phone_number.required'=>'Số điện thoại là trường bắt buộc',
-            'phone_number.numeric'=>'Số điện thoại chỉ nhập số',
-            'question.required'=>'Câu hỏi là trường bắt buộc',
-            'question.required'=>'Câu hỏi tối đa 255 kí tự',
+            'phone_number.required' => 'Phone number is required',
+            'phone_number.numeric' => 'Phone number must be numeric',
+            'question.required' => 'Question is required',
+            'question.max' => 'Question may not be greater than 255 characters',
         ];
     }
 }

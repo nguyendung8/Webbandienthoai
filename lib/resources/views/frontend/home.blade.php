@@ -2,6 +2,9 @@
 @section('title', 'Trang chủ')
 @section('main')
 <style>
+    .product-item img{
+	    max-height: 170px !important;
+    }
      .contact-icon {
                 font-size: 31px;
                 position: fixed;
@@ -66,42 +69,42 @@
 			}
 </style>
 <link rel="stylesheet" href="css/category.css">
-	<div id="wrap-inner">
-		<div class="products">
-			<h3>sản phẩm nổi bật</h3>
-			<div style="gap: 15px;" class="product-list row">
-				@foreach($product_featured as $prod_featured)
-				<div style="border-radius: 10px;" class="product-item col-md-3 col-sm-6 col-xs-12">
-					<a href="#"><img height="150px" src="{{ asset('lib/storage/app/avatar/'.$prod_featured->prod_img) }}" class="img-thumbnail"></a>
-					<p><a href="#">{{ $prod_featured->prod_name }}</a></p>
-					<p class="price">{{ number_format($prod_featured->prod_price,0,',','.' )}} VND</p>
-					<div class="marsk">
-						<a href="{{ asset('/detail/' . $prod_featured->prod_id) }}">Xem chi tiết</a>
-					</div>
-				</div>
-				@endforeach
-			</div>
-		</div>
+    <div id="wrap-inner">
+        <div class="products">
+            <h3>Featured Products</h3>
+            <div style="gap: 15px;" class="product-list row">
+                @foreach($product_featured as $prod_featured)
+                <div style="border-radius: 10px;" class="product-item col-md-3 col-sm-6 col-xs-12">
+                    <a href="#"><img height="150px" src="{{ asset('lib/storage/app/avatar/'.$prod_featured->prod_img) }}" class="img-thumbnail"></a>
+                    <p><a href="#">{{ $prod_featured->prod_name }}</a></p>
+                    <p class="price">{{ number_format($prod_featured->prod_price,0,',','.' )}} VND</p>
+                    <div class="marsk">
+                        <a href="{{ asset('/detail/' . $prod_featured->prod_id) }}">View Details</a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
 
-		<div id="pagination">
-			{{ $product_featured->links('vendor.pagination.default') }}
-		</div>
+        <div id="pagination">
+            {{ $product_featured->links('vendor.pagination.default') }}
+        </div>
 
-		<div class="products">
-			<h3>sản phẩm mới</h3>
-			<div style="gap: 15px;" class="product-list row">
-				@foreach($product_new as $prod_new)
-				<div style="border-radius: 10px;" class="product-item col-md-3 col-sm-6 col-xs-12">
-					<a href="#"><img src="{{ asset('lib/storage/app/avatar/'.$prod_new->prod_img) }}" class="img-thumbnail"></a>
-					<p><a href="#">{{ $prod_new->prod_name }}</a></p>
-					<p class="price">{{ number_format($prod_new->prod_price,0,',','.' ) }} VND</p>
-					<div class="marsk">
-						<a href="{{ asset('/detail/' . $prod_new->prod_id) }}">Xem chi tiết</a>
-					</div>
-				</div>
-				@endforeach
-			</div>
-		</div>
+        <div class="products">
+            <h3>New Products</h3>
+            <div style="gap: 15px;" class="product-list row">
+                @foreach($product_new as $prod_new)
+                <div style="border-radius: 10px;" class="product-item col-md-3 col-sm-6 col-xs-12">
+                    <a href="#"><img src="{{ asset('lib/storage/app/avatar/'.$prod_new->prod_img) }}" class="img-thumbnail"></a>
+                    <p><a href="#">{{ $prod_new->prod_name }}</a></p>
+                    <p class="price">{{ number_format($prod_new->prod_price,0,',','.' ) }} VND</p>
+                    <div class="marsk">
+                        <a href="{{ asset('/detail/' . $prod_new->prod_id) }}">View Details</a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
 
         <div class="contact-icon">
             <i class="fa fa-comments contact-icon" aria-hidden="true"></i>
@@ -110,22 +113,22 @@
             @include('errors.note')
             <form method="post">
                 @csrf
-                <h3 class="contact-title">Cảm ơn quý khách đã quan tâm tới  LUXELUSH! Xin vui lòng hoàn thành biểu mẫu dưới đây</h3>
+                <h3 class="contact-title">Thank you for your interest in Anh Mobile! Please complete the form below</h3>
                 <i class="fa fa-times close-btn close-contact" aria-hidden="true"></i>
-                <label for="">Họ và tên</label>
+                <label for="">Full Name</label>
                 <div>
                     <input type="text" name="name" id="" required>
                 </div>
-                <label for="">Số điện thoại <span style="color: red;">*</span></label>
+                <label for="">Phone Number <span style="color: red;">*</span></label>
                 <div>
                     <input type="text" name="phone_number" id="" required>
                 </div>
-                <label for="">Câu hỏi của bạn <span style="color: red;">*</span></label>
+                <label for="">Your Question <span style="color: red;">*</span></label>
                 <div>
                     <input style="padding: 11px" type="text" name="question" id="" required max="255">
                 </div>
-                <button class="submit-contact-btn close-contact" type="submit">Gửi</button>
+                <button class="submit-contact-btn close-contact" type="submit">Submit</button>
             </form>
         </div>
-	</div>
+    </div>
 @stop

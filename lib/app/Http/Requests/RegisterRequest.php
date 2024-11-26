@@ -33,10 +33,10 @@ class RegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => 'Email là trường bắt buộc',
-            'email.email' => 'Email không đúng định dạng',
-            'password.required' => 'Mật khẩu là trường bắt buộc',
-            'password.min' => 'Mật khẩu tối thiểu 6 kí tự',
+            'email.required' => 'Email is required',
+            'email.email' => 'Invalid email format',
+            'password.required' => 'Password is required',
+            'password.min' => 'Password must be at least 6 characters',
         ];
     }
 }

@@ -24,14 +24,14 @@ class AddCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_name'=>'unique:vp_categories,cate_name'
+            'category_name' => 'unique:vp_categories,cate_name'
         ];
     }
 
     public function messages()
     {
         return [
-            'category_name.unique'=>'Tên danh mục đã tồn tại'
+            'category_name.unique' => 'Category name already exists'
         ];
     }
 }

@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'Danh sách bình luận')
+@section('title', 'Comment List')
 @section('main')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -38,74 +38,74 @@
         font-size: 15px;
     }
 </style>
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Bình luận đánh giá</h1>
-			</div>
-		</div><!--/.row-->
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Review Comments</h1>
+            </div>
+        </div><!--/.row-->
 
-		<div class="row">
-			<div class="col-xs-12 col-md-5 col-lg-6">
+        <div class="row">
+            <div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        Danh sách bình luận chờ duyệt
+                        Pending Comments List
                     </div>
                     <div class="panel-body">
                         @foreach($comment_not_confirm as $comment)
                         <div class="comment-item">
-						    <a href="{{ asset('admin/comment/delete/' . $comment->com_id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa bình luận này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
-                            <label class="customer-email">ID khách hàng: </label>
+                            <a href="{{ asset('admin/comment/delete/' . $comment->com_id) }}" onclick="return confirm('Are you sure you want to delete this comment?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                            <label class="customer-email">Customer ID: </label>
                             {{ $comment->user_id }}
                             <br>
-                            <label class="customer-email">Tên khách hàng: </label>
+                            <label class="customer-email">Customer Name: </label>
                                 {{ $comment->com_name }}
                             <br>
-                            <label class="customer-email">ID Sản phẩm: </label>
+                            <label class="customer-email">Product ID: </label>
                             {{ $comment->com_product }}
                             <br>
-                            <label class="customer-phone">Bình luận: </label>
+                            <label class="customer-phone">Comment: </label>
                                 {{ $comment->com_content }}
                             <br>
                             <a class="confirm-btn" href="{{ asset('admin/comment/confirm-comment/' . $comment->com_id) }}"
-                                onclick="return confirm('Bạn có chắc chắn muốn duyệt bình luận này không?')">
-                                    Duyệt
+                                onclick="return confirm('Are you sure you want to approve this comment?')">
+                                    Approve
                             </a>
                         </div>
                         @endforeach
                     </div>
                 </div>
-			</div>
+            </div>
             <div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        Danh sách bình luận đã duyệt
+                        Approved Comments List
                     </div>
                     <div class="panel-body">
                         @foreach($comment_confirmed as $comment)
                         <div class="comment-item">
-						    <a href="{{ asset('admin/comment/delete/' . $comment->com_id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa bình luận này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
-                            <label class="customer-email">ID khách hàng: </label>
+                            <a href="{{ asset('admin/comment/delete/' . $comment->com_id) }}" onclick="return confirm('Are you sure you want to delete this comment?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                            <label class="customer-email">Customer ID: </label>
                             {{ $comment->user_id }}
                             <br>
-                            <label class="customer-email">Tên khách hàng: </label>
+                            <label class="customer-email">Customer Name: </label>
                                 {{ $comment->com_name }}
                             <br>
-                            <label class="customer-email">ID Sản phẩm: </label>
+                            <label class="customer-email">Product ID: </label>
                             {{ $comment->com_product }}
                             <br>
-                            <label class="customer-phone">Bình luận: </label>
+                            <label class="customer-phone">Comment: </label>
                                 {{ $comment->com_content }}
                             <br>
-                            <label class="customer-phone">Trạng thái: </label>
+                            <label class="customer-phone">Status: </label>
                             <span class="confirmed">
-                                    Đã duyệt
+                                    Approved
                             </span>
                         </div>
                         @endforeach
                     </div>
                 </div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 @stop

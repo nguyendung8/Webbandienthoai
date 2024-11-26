@@ -31,7 +31,7 @@ class EditCategoryRequest extends FormRequest
     public function messages()
     {
         return [
-            'category_name.unique'=>'Tên danh mục đã tồn tại'
+            'category_name.unique' => 'Category name already exists'
         ];
     }
 }

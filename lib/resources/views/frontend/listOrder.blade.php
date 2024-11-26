@@ -40,45 +40,45 @@
         text-align: center;
     }
 </style>
-	<div id="wrap-inner">
+    <div id="wrap-inner">
         @if(count($orders) >=1)
         <div class="list-item">
-            <h1 class="title">Danh sách đơn hàng của tôi</h1>
+            <h1 class="title">My Order List</h1>
             @foreach($orders as $order)
             <div class="order-item">
-                <label class="customer-name">Tên người nhận: </label>
+                <label class="customer-name">Recipient Name: </label>
                     {{ $order->name }}
                 <br>
                 <label class="customer-name">Email: </label>
                 {{ $order->email }}
                 <br>
-                <label class="customer-phone">Số điện thoại liên hệ: </label>
+                <label class="customer-phone">Contact Phone: </label>
                     {{ $order->phone }}
                 <br>
-                <label class="customer-phone">Địa chỉ: </label>
+                <label class="customer-phone">Address: </label>
                     {{ $order->address }}
                 <br>
-                <label class="customer-phone">Sản phẩm: </label>
+                <label class="customer-phone">Products: </label>
                     {{ $order->total_products }}
                 <br>
-                <label class="customer-question">Tổng tiền: </label>
+                <label class="customer-question">Total Price: </label>
                     <?php
                         $so = intval(str_replace(',', '', $order->total_price));
                         $so_moi = number_format($so, 0, '.', ',');
                     ?>
                     {{  $so_moi }} đ
                 <br>
-                <label class="customer-phone">Ngày đặt hàng: </label>
+                <label class="customer-phone">Order Date: </label>
                 {{ $order->placed_order_date }}
                 <br>
-                <label class="customer-phone">Trạng thái đơn hàng: </label>
-                    <span style='@if($order->order_status == 'Chờ xác nhận') color: red; @elseif($order->order_status == 'Đã xác nhận') color: blue; @elseif($order->order_status == 'Đang vận chuyển') color: orange; @else color: #2fd01b  @endif'>
+                <label class="customer-phone">Order Status: </label>
+                    <span style='@if($order->order_status == 'Pending Confirmation') color: red; @elseif($order->order_status == 'Confirmed') color: blue; @elseif($order->order_status == 'Shipping') color: orange; @else color: #2fd01b  @endif'>
                         {{ $order->order_status }}
                     </span>
                 <br>
-                @if($order->order_status == 'Đang vận chuyển')
-                    <button style="@if($order->order_status == 'Hoàn thành') background: #2fd01b; @endif" class="received-btn">
-                        <a href="{{ asset('list-order/received/' . $order->id) }}">{{$order->order_status == 'Hoàn thành' ? 'Hoàn thành' : 'Đã nhận được hàng'}}</a>
+                @if($order->order_status == 'Shipping')
+                    <button style="@if($order->order_status == 'Completed') background: #2fd01b; @endif" class="received-btn">
+                        <a href="{{ asset('list-order/received/' . $order->id) }}">{{$order->order_status == 'Completed' ? 'Completed' : 'Received'}}</a>
                     </button>
                 @endif
             </div>
@@ -88,7 +88,7 @@
             {{ $orders->links('vendor.pagination.default') }}
         </div>
         @else
-        <h2 class="empty">Danh sách đơn hàng của bạn trống!</h2>
+        <h2 class="empty">Your order list is empty!</h2>
         @endif
-	</div>
+    </div>
 @stop

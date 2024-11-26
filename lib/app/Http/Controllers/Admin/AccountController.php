@@ -20,6 +20,6 @@ class AccountController extends Controller
 
         $account->delete();
 
-        return redirect()->intended('admin/account')->with('success', 'Xóa tài khoản thành công!');
+        return redirect()->intended('admin/account')->with('success', 'Account deleted successfully!');
     }
 }

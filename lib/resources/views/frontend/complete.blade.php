@@ -1,16 +1,16 @@
 @extends('frontend.master')
-@section('title', 'Giỏ hàng')
+@section('title', 'Cart')
 @section('main')
-	<link rel="stylesheet" href="css/complete.css">
-	<div id="wrap-inner">
-		<div id="complete">
-			<p class="info">Quý khách đã đặt hàng thành công!</p>
-			<p>• Hóa đơn mua hàng của Quý khách đã được chuyển đến Địa chỉ Email có trong phần Thông tin Khách hàng của chúng Tôi</p>
-			<p>• Sản phẩm của Quý khách sẽ được chuyển đến Địa có trong phần Thông tin Khách hàng của chúng Tôi sau thời gian 2 đến 3 ngày, tính từ thời điểm này.</p>
-			<p>• Nhân viên giao hàng sẽ liên hệ với Quý khách qua Số Điện thoại trước khi giao hàng 24 tiếng</p>
-			<p>• Trụ sở chính: Số 51/42 - Ngõ 85 Hạ Đình - Thanh Xuân - Hà Nội</p>
-			<p>Cám ơn Quý khách đã sử dụng Sản phẩm của Công ty chúng Tôi!</p>
-		</div>
-		<p class="text-right return"><a href="{{ asset('/') }}">Quay lại trang chủ</a></p>
-	</div>	
+    <link rel="stylesheet" href="css/complete.css">
+    <div id="wrap-inner">
+        <div id="complete">
+            <p class="info">You have successfully placed an order!</p>
+            <p>• Your purchase invoice has been sent to the Email address in the Customer Information section of our system.</p>
+            <p>• Your product will be delivered to the address in the Customer Information section of our system within 2 to 3 days from now.</p>
+            <p>• The delivery staff will contact you via Phone number 24 hours before delivery.</p>
+            <p>• Headquarters: No. 51/42 - Alley 85 Ha Dinh - Thanh Xuan - Hanoi</p>
+            <p>Thank you for using our company's products!</p>
+        </div>
+        <p class="text-right return"><a href="{{ asset('/') }}">Return to homepage</a></p>
+    </div>
 @stop

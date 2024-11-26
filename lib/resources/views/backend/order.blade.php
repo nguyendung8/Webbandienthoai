@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'Danh sách đơn hàng')
+@section('title', 'Order List')
 @section('main')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -42,10 +42,6 @@
         text-decoration: none;
         color: #fff;
     }
-    /* #pagination {
-        display: flex;
-        justify-content: center;
-    } */
     .detail-btn {
         background: #baab25;
         color: #fff;
@@ -60,160 +56,148 @@
         color: #fff;
     }
 </style>
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Đơn hàng</h1>
-			</div>
-		</div><!--/.row-->
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Orders</h1>
+            </div>
+        </div><!--/.row-->
 
-		<div class="row">
-			<div class="col-xs-12 col-md-5 col-lg-6">
+        <div class="row">
+            <div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
                     <div style="background: #e04135;" class="panel-heading">
-                        Danh sách đơn hàng chờ xác nhận
+                        Pending Orders
                     </div>
                     <form action="" method="post" class="panel-body">
                         @csrf
                         @foreach($wait_confirm as $order)
                         <div class="order-item">
-						    <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
-                            <label for="">Mã đơn hàng: </label>
+                            <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Are you sure you want to delete this order?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                            <label for="">Order ID: </label>
                                 {{ $order->id }}
                             <br>
-                            <label class="customer-phone">Sản phẩm: </label>
+                            <label class="customer-phone">Products: </label>
                                 {{ $order->total_products }}
                             <br>
-                            <label class="customer-question">Tổng tiền: </label>
+                            <label class="customer-question">Total Price: </label>
                                  <?php
                                     $so = intval(str_replace(',', '', $order->total_price));
                                     $so_moi = number_format($so, 0, '.', ',');
                                 ?>
                                 {{  $so_moi }} đ
                             <br>
-                            <label class="customer-phone">Trạng thái đơn hàng: </label>
+                            <label class="customer-phone">Order Status: </label>
                             <span style="color: #e04135; font-weight: 700;">{{ $order->order_status }} </span>
                             <div style="display: flex; gap: 10px;">
-                               <a href="{{ asset('admin/order/confirm/' . $order->id) }}" class="update-status">Xác nhận</a>
-                               <a href="{{ asset('admin/order/detail/' . $order->id) }}" class="detail-btn">Xem chi tiết</a>
+                               <a href="{{ asset('admin/order/confirm/' . $order->id) }}" class="update-status">Confirm</a>
+                               <a href="{{ asset('admin/order/detail/' . $order->id) }}" class="detail-btn">View Details</a>
                             </div>
                         </div>
                         @endforeach
                     </form>
-                    {{-- <div id="pagination">
-                        {{ $wait_confirm->links('vendor.pagination.default') }}
-                    </div> --}}
                 </div>
-			</div>
+            </div>
             <div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        Danh sách đơn hàng đã xác nhận
+                        Confirmed Orders
                     </div>
                     <form action="" method="post" class="panel-body">
                         @csrf
                         @foreach($confirmed as $order)
                         <div class="order-item">
-						    <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
-                            <label for="">Mã đơn hàng: </label>
+                            <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Are you sure you want to delete this order?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                            <label for="">Order ID: </label>
                                 {{ $order->id }}
                             <br>
-                            <label class="customer-phone">Sản phẩm: </label>
+                            <label class="customer-phone">Products: </label>
                                 {{ $order->total_products }}
                             <br>
-                            <label class="customer-question">Tổng tiền: </label>
+                            <label class="customer-question">Total Price: </label>
                                  <?php
                                     $so = intval(str_replace(',', '', $order->total_price));
                                     $so_moi = number_format($so, 0, '.', ',');
                                 ?>
                                 {{  $so_moi }} đ
                             <br>
-                            <label class="customer-phone">Trạng thái đơn hàng: </label>
+                            <label class="customer-phone">Order Status: </label>
                              <span style="color: #337ab7; font-weight: 700;">{{ $order->order_status }} </span>
                             <div style="display: flex; gap: 10px;">
-                                <a href="{{ asset('admin/order/transport/' . $order->id) }}" class="transport">Vận chuyển</a>
-                                <a href="{{ asset('admin/order/detail/' . $order->id) }}" class="detail-btn">Xem chi tiết</a>
+                                <a href="{{ asset('admin/order/transport/' . $order->id) }}" class="transport">Transport</a>
+                                <a href="{{ asset('admin/order/detail/' . $order->id) }}" class="detail-btn">View Details</a>
                             </div>
                         </div>
                         @endforeach
                     </form>
-                    {{-- <div id="pagination">
-                        {{ $confirmed->links('vendor.pagination.default') }}
-                    </div> --}}
                 </div>
-			</div>
+            </div>
             <div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
                     <div style="background: #ff9800;" class="panel-heading">
-                        Danh sách đơn hàng đang vận chuyển
+                        Orders in Transit
                     </div>
                     <form action="" method="post" class="panel-body">
                         @csrf
                         @foreach($transforming as $order)
                         <div class="order-item">
-						    <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
-                            <label for="">Mã đơn hàng: </label>
+                            <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Are you sure you want to delete this order?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                            <label for="">Order ID: </label>
                                 {{ $order->id }}
                             <br>
-                            <label class="customer-phone">Sản phẩm: </label>
+                            <label class="customer-phone">Products: </label>
                                 {{ $order->total_products }}
                             <br>
-                            <label class="customer-question">Tổng tiền: </label>
+                            <label class="customer-question">Total Price: </label>
                                  <?php
                                     $so = intval(str_replace(',', '', $order->total_price));
                                     $so_moi = number_format($so, 0, '.', ',');
                                 ?>
                                 {{  $so_moi }} đ
                             <br>
-                            <label class="customer-phone">Trạng thái đơn hàng: </label>
+                            <label class="customer-phone">Order Status: </label>
                             <span style="color: #ff9800; font-weight: 700;"> {{ $order->order_status }} </span>
                             <div style="display: flex; gap: 10px;">
-                                <a href="{{ asset('admin/order/detail/' . $order->id) }}" class="detail-btn">Xem chi tiết</a>
+                                <a href="{{ asset('admin/order/detail/' . $order->id) }}" class="detail-btn">View Details</a>
                             </div>
                         </div>
                         @endforeach
                     </form>
-                    {{-- <div id="pagination">
-                        {{ $transforming->links('vendor.pagination.default') }}
-                    </div> --}}
                 </div>
-			</div>
+            </div>
             <div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
                     <div style="background: #62b700" class="panel-heading">
-                        Danh sách đơn hàng đã hoàn thành
+                        Completed Orders
                     </div>
                     <form action="" method="post" class="panel-body">
                         @csrf
                         @foreach($done as $order)
                         <div class="order-item">
-						    <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
-                            <label for="">Mã đơn hàng: </label>
+                            <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Are you sure you want to delete this order?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                            <label for="">Order ID: </label>
                                 {{ $order->id }}
                             <br>
-                            <label class="customer-phone">Sản phẩm: </label>
+                            <label class="customer-phone">Products: </label>
                                 {{ $order->total_products }}
                             <br>
-                            <label class="customer-question">Tổng tiền: </label>
+                            <label class="customer-question">Total Price: </label>
                                  <?php
                                     $so = intval(str_replace(',', '', $order->total_price));
                                     $so_moi = number_format($so, 0, '.', ',');
                                 ?>
                                 {{  $so_moi }} đ
                             <br>
-                            <label class="customer-phone">Trạng thái đơn hàng: </label>
+                            <label class="customer-phone">Order Status: </label>
                                 <span style="color: #62b700; font-weight: 700;"> {{ $order->order_status }} </span>
                             <div style="display: flex; gap: 10px;">
-                                <a href="{{ asset('admin/order/detail/' . $order->id) }}" class="detail-btn">Xem chi tiết</a>
+                                <a href="{{ asset('admin/order/detail/' . $order->id) }}" class="detail-btn">View Details</a>
                             </div>
                         </div>
                         @endforeach
                     </form>
-                    {{-- <div id="pagination">
-                        {{ $done->links('vendor.pagination.default') }}
-                    </div> --}}
                 </div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 @stop

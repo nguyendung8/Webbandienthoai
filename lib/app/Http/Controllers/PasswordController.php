@@ -20,14 +20,14 @@ class PasswordController extends Controller
 
         // Kiểm tra mật khẩu cũ
         if (!Hash::check($request->current_password, $user->password)) {
-            return redirect()->back()->with('error', 'Mật khẩu cũ không đúng.');
+            return redirect()->back()->with('error', 'The current password is incorrect.');
         }
 
-        // Cập nhật mật khẩu mới
+        // Update the new password
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return redirect()->intended('/')->with('success', 'Đổi mật khẩu thành công!');
+        return redirect()->intended('/')->with('success', 'Password changed successfully!');
     }
 
 }

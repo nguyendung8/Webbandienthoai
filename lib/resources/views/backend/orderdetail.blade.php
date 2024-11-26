@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'Chi tiết đơn hàng')
+@section('title', 'Order Details')
 @section('main')
 <style>
     .order-item {
@@ -43,65 +43,65 @@
     }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Chi tiết đơn hàng</h1>
-			</div>
-		</div><!--/.row-->
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Order Details</h1>
+            </div>
+        </div><!--/.row-->
 
-		<div class="row">
-			<div class="col-xs-12 col-md-5 col-lg-6">
+        <div class="row">
+            <div class="col-xs-12 col-md-5 col-lg-6">
                 <div class="panel panel-primary">
-                    <div style=" @if($order->order_status == 'Hoàn thành') background: #62b700 @elseif($order->order_status == 'Chờ xác nhận') background: #e04135 @elseif($order->order_status == 'Đã xác nhận') background: #337ab7; @else background: #ff9800  @endif"  class="panel-heading">
+                    <div style=" @if($order->order_status == 'Completed') background: #62b700 @elseif($order->order_status == 'Pending Confirmation') background: #e04135 @elseif($order->order_status == 'Confirmed') background: #337ab7; @else background: #ff9800  @endif"  class="panel-heading">
                         <a href="{{ asset('admin/order') }}"><i style="color: #fff !important;" class="fa fa-arrow-left" aria-hidden="true"></i></a>
-                        Xem chi tiết mã đơn hàng {{ $order->id }}
+                        View order details #{{ $order->id }}
                     </div>
                     <div class="panel-body">
                         <div class="order-item">
-						    <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
-                            <label for="">Mã đơn hàng: </label>
+                            <a href="{{ asset('admin/order/delete/' . $order->id) }}" onclick="return confirm('Are you sure you want to delete this order?')"><i class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                            <label for="">Order ID: </label>
                                 {{ $order->id }}
                             <br>
-                            <label class="customer-name">Tên khách hàng: </label>
+                            <label class="customer-name">Customer Name: </label>
                                 {{ $order->name }}
                             <br>
                             <label class="customer-name">Email: </label>
                                 {{ $order->email }}
                             <br>
-                            <label class="customer-phone">Số điện thoại liên hệ: </label>
+                            <label class="customer-phone">Contact Phone: </label>
                                 {{ $order->phone }}
                             <br>
-                            <label class="customer-phone">Địa chỉ: </label>
+                            <label class="customer-phone">Address: </label>
                                 {{ $order->address }}
                             <br>
-                            <label class="customer-phone">Sản phẩm: </label>
+                            <label class="customer-phone">Products: </label>
                                 {{ $order->total_products }}
                             <br>
-                            <label class="customer-question">Tổng tiền: </label>
+                            <label class="customer-question">Total Price: </label>
                                 <?php
                                     $so = intval(str_replace(',', '', $order->total_price));
                                     $so_moi = number_format($so, 0, '.', ',');
                                 ?>
                                 {{  $so_moi }} đ
                             <br>
-                            <label class="customer-phone">Ngày đặt hàng: </label>
+                            <label class="customer-phone">Order Date: </label>
                                 {{ $order->placed_order_date }}
                             <br>
-                            <label class="customer-phone">Trạng thái đơn hàng: </label>
-                            <span style=" @if($order->order_status == 'Hoàn thành') color: #62b700 @elseif($order->order_status == 'Chờ xác nhận') color: #e04135 @elseif($order->order_status == 'Đã xác nhận') color: #337ab7 @else color: #ff9800  @endif; font-weight: 700;">
+                            <label class="customer-phone">Order Status: </label>
+                            <span style=" @if($order->order_status == 'Completed') color: #62b700 @elseif($order->order_status == 'Pending Confirmation') color: #e04135 @elseif($order->order_status == 'Confirmed') color: #337ab7 @else color: #ff9800  @endif; font-weight: 700;">
                                 {{ $order->order_status }}
                             </span>
-                            @if($order->order_status != 'Hoàn thành')
+                            @if($order->order_status != 'Completed')
                             <div style="display: flex; gap: 10px;">
-                                @if($order->order_status == 'Chờ xác nhận') <a href="{{ asset('admin/order/confirm/' . $order->id) }}" class="update-status">Xác nhận</a> @endif
-                                @if($order->order_status == 'Đã xác nhận') <a href="{{ asset('admin/order/transport/' . $order->id) }}" class="transport">Vận chuyển</a> @endif
+                                @if($order->order_status == 'Pending Confirmation') <a href="{{ asset('admin/order/confirm/' . $order->id) }}" class="update-status">Confirm</a> @endif
+                                @if($order->order_status == 'Confirmed') <a href="{{ asset('admin/order/transport/' . $order->id) }}" class="transport">Transport</a> @endif
                             </div>
                         @endif
                         </div>
                     </div>
                 </div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 @stop

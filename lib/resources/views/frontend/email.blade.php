@@ -1,57 +1,56 @@
-
 <link rel="stylesheet" href="css/email.css">
 <font face="Arial">
-	<div id="wrap-inner">
-		<div id="khach-hang">
-			<h3>Thông tin khách hàng</h3>
-			<p>
-				<span class="info">Khách hàng: </span>
-				{{ $info['name'] }}
-			</p>
-			<p>
-				<span class="info">Email: </span>
-				{{ $info['email'] }}
-			</p>
-			<p>
-				<span class="info">Điện thoại: </span>
-				{{ $info['phone'] }}
-			</p>
-			<p>
-				<span class="info">Địa chỉ: </span>
-				{{ $info['add'] }}
-			</p>
-		</div>						
-		<div id="hoa-don">
-			<h3>Hóa đơn mua hàng</h3>							
-			<table class="table-bordered table-responsive">
-				<tr class="bold">
-					<td width="30%">Tên sản phẩm</td>
-					<td width="25%">Giá</td>
-					<td width="20%">Số lượng</td>
-					<td width="15%">Thành tiền</td>
-				</tr>
-				@foreach($cart as $item)		
-					<tr>
-						<td>{{ $item->name }}</td>
-						<td class="price">{{ number_format($item->price,0,',','.' ) }} VND</td>
-						<td>{{ $item->qty }}</td>
-						<td class="price">{{ number_format($item->qty * $item->price,0,',','.' ) }} VND</td>
-					</tr>
-				@endforeach
-				<tr>
-					<td colspan="3">Tổng tiền:</td>
-					<td class="total-price">{{ $total }} VND</td>
-				</tr>
-			</table>
-		</div>
-		<div id="xac-nhan">
-			<br>
-			<p align="justify">
-				<b>Quý khách đã đặt hàng thành công!</b><br />
-				• Sản phẩm của Quý khách sẽ được chuyển đến Địa chỉ có trong phần Thông tin Khách hàng của chúng Tôi sau thời gian 2 đến 3 ngày, tính từ thời điểm này.<br />
-				• Nhân viên giao hàng sẽ liên hệ với Quý khách qua Số Điện thoại trước khi giao hàng 24 tiếng.<br />
-				<b><br />Cám ơn Quý khách đã sử dụng Sản phẩm của Công ty chúng Tôi!</b>
-			</p>
-		</div>
-	</div>	
-</font>		
+    <div id="wrap-inner">
+        <div id="customer">
+            <h3>Customer Information</h3>
+            <p>
+                <span class="info">Customer: </span>
+                {{ $info['name'] }}
+            </p>
+            <p>
+                <span class="info">Email: </span>
+                {{ $info['email'] }}
+            </p>
+            <p>
+                <span class="info">Phone: </span>
+                {{ $info['phone'] }}
+            </p>
+            <p>
+                <span class="info">Address: </span>
+                {{ $info['add'] }}
+            </p>
+        </div>
+        <div id="invoice">
+            <h3>Invoice</h3>
+            <table class="table-bordered table-responsive">
+                <tr class="bold">
+                    <td width="30%">Product Name</td>
+                    <td width="25%">Price</td>
+                    <td width="20%">Quantity</td>
+                    <td width="15%">Total</td>
+                </tr>
+                @foreach($cart as $item)
+                    <tr>
+                        <td>{{ $item->name }}</td>
+                        <td class="price">{{ number_format($item->price,0,',','.' ) }} VND</td>
+                        <td>{{ $item->qty }}</td>
+                        <td class="price">{{ number_format($item->qty * $item->price,0,',','.' ) }} VND</td>
+                    </tr>
+                @endforeach
+                <tr>
+                    <td colspan="3">Total:</td>
+                    <td class="total-price">{{ $total }} VND</td>
+                </tr>
+            </table>
+        </div>
+        <div id="confirmation">
+            <br>
+            <p align="justify">
+                <b>Your order has been successfully placed!</b><br />
+                • Your product will be delivered to the address provided in the Customer Information section within 2 to 3 days from now.<br />
+                • Our delivery staff will contact you via phone 24 hours before delivery.<br />
+                <b><br />Thank you for using our company's products!</b>
+            </p>
+        </div>
+    </div>
+</font>

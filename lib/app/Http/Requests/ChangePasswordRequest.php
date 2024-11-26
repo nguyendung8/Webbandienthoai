@@ -33,12 +33,12 @@ class ChangePasswordRequest extends FormRequest
     public function messages()
     {
         return [
-            'current_password.required'=>'Mật khẩu hiện tại là trường bắt buộc',
-            'new_password.required'=>'Mật khẩu mới là trường bắt buộc',
-            'new_password.min'=>'Mật khẩu mới tối thiểu 6 kí tự',
-            'new_password_confirmation.required'=>'Nhập lại mật khẩu mới là trường bắt buộc',
-            'new_password_confirmation.min'=>'Nhập lại mật khẩu mới tối thiểu 6 kí tự',
-            'new_password.confirmed'=>'Mật khẩu mới không khớp với nhau',
+            'current_password.required' => 'Current password is required',
+            'new_password.required' => 'New password is required',
+            'new_password.min' => 'New password must be at least 6 characters',
+            'new_password_confirmation.required' => 'Password confirmation is required',
+            'new_password_confirmation.min' => 'Password confirmation must be at least 6 characters',
+            'new_password.confirmed' => 'New password does not match the confirmation',
         ];
     }
 }

@@ -12,10 +12,10 @@ class OrderController extends Controller
 {
     public function getOrder()
     {
-        $wait_confirm = VpOrder::Where('order_status' , 'Chờ xác nhận')->orderBy('created_at', 'asc')->get();
-        $confirmed = VpOrder::Where('order_status' , 'Đã xác nhận')->orderBy('created_at', 'asc')->get();
-        $transforming = VpOrder::Where('order_status' , 'Đang vận chuyển')->orderBy('created_at', 'asc')->get();
-        $done = VpOrder::Where('order_status' , 'Hoàn thành')->orderBy('created_at', 'asc')->get();
+        $wait_confirm = VpOrder::Where('order_status' , 'Waiting for confirmation')->orderBy('created_at', 'asc')->get();
+        $confirmed = VpOrder::Where('order_status' , 'Confirmed')->orderBy('created_at', 'asc')->get();
+        $transforming = VpOrder::Where('order_status' , 'In transit')->orderBy('created_at', 'asc')->get();
+        $done = VpOrder::Where('order_status' , 'Completed')->orderBy('created_at', 'asc')->get();
 
         return view('backend.order', compact('wait_confirm', 'confirmed', 'transforming', 'done'));
     }
@@ -25,7 +25,7 @@ class OrderController extends Controller
 
         $order->delete();
 
-        return redirect()->intended('admin/order')->with('success', 'Xóa đơn hàng thành công!');;
+        return redirect()->intended('admin/order')->with('success', 'Order deleted successfully!');
     }
     public function viewDetailOrder($id)
     {
@@ -35,11 +35,11 @@ class OrderController extends Controller
     public function confirmOrder($id)
     {
         $order = VpOrder::find($id);
-        $order->order_status = 'Đã xác nhận';
+        $order->order_status = 'Confirmed';
         $email = $order->email;
         $name = $order->name;
         $data =[
-            'Đơn hàng của bạn đã được xác nhận và chúng tôi sẽ sớm chuyển tới bạn'
+            'Your order has been confirmed and we will deliver it to you soon'
         ];
         $order->save();
         Mail::send('backend.confirm_order',$data, function ($message) use ($email, $name) {
@@ -47,19 +47,19 @@ class OrderController extends Controller
 
             $message->to($email, $name);
 
-            $message->subject('Thông báo đơn hàng của bạn đã được xác nhận tại LUXELUSH');
+            $message->subject('Your order has been confirmed at Anh Mobile');
 
         });
-        return redirect()->intended('admin/order')->with('success', 'Xác nhận đơn hàng thành công!');
+        return redirect()->intended('admin/order')->with('success', 'Order confirmed successfully!');
     }
     public function transportOrder($id)
     {
         $order = VpOrder::find($id);
-        $order->order_status = 'Đang vận chuyển';
+        $order->order_status = 'In transit';
         $email = $order->email;
         $name = $order->name;
         $data =[
-            'Đơn hàng của bạn đang trong quá trình vận chuyển'
+            'Your order is in transit'
         ];
         $order->save();
         Mail::send('backend.transport_order',$data, function ($message) use ($email, $name) {
@@ -67,9 +67,9 @@ class OrderController extends Controller
 
             $message->to($email, $name);
 
-            $message->subject('Thông báo đơn hàng của bạn đang được vận chuyển từ LUXELUSH');
+            $message->subject('Your order is being shipped from Anh Mobile');
 
         });
-        return redirect()->intended('admin/order')->with('success', 'Cập nhật đơn hàng thành công!');;
+        return redirect()->intended('admin/order')->with('success', 'Order updated successfully!');
     }
 }

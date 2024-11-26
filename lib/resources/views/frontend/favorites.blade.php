@@ -66,25 +66,25 @@
     }
 </style>
 <link rel="stylesheet" href="css/category.css">
-	<div id="wrap-inner">
-		<div class="products">
-			<h3 style="text-align: center; margin: 15px 0;">Danh sách sản phẩm yêu thích của bạn</h3>
-			<div style="gap: 15px;" class="product-list row">
-				@foreach($favoriteProducts as $prod_favorite)
-				<div style="border-radius: 10px;" class="product-item col-md-3 col-sm-6 col-xs-12">
-					<a href="#"><img height="150px" src="{{ asset('lib/storage/app/avatar/'.$prod_favorite->prod_img) }}" class="img-thumbnail"></a>
-					<p><a href="#">{{ $prod_favorite->prod_name }}</a></p>
-					<p class="price">{{ number_format($prod_favorite->prod_price,0,',','.' )}} VND</p>
-					<div class="marsk">
-						<a href="{{ asset('/detail/' . $prod_favorite->prod_id) }}">Xem chi tiết</a>
-					</div>
-				</div>
-				@endforeach
-			</div>
-		</div>
+    <div id="wrap-inner">
+        <div class="products">
+            <h3 style="text-align: center; margin: 15px 0;">Your Favorite Products List</h3>
+            <div style="gap: 15px;" class="product-list row">
+                @foreach($favoriteProducts as $prod_favorite)
+                <div style="border-radius: 10px;" class="product-item col-md-3 col-sm-6 col-xs-12">
+                    <a href="#"><img height="150px" src="{{ asset('lib/storage/app/avatar/'.$prod_favorite->prod_img) }}" class="img-thumbnail"></a>
+                    <p><a href="#">{{ $prod_favorite->prod_name }}</a></p>
+                    <p class="price">{{ number_format($prod_favorite->prod_price,0,',','.' )}} VND</p>
+                    <div class="marsk">
+                        <a href="{{ asset('/detail/' . $prod_favorite->prod_id) }}">View Details</a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
 
-		<div id="pagination">
-			{{ $favoriteProducts->links('vendor.pagination.default') }}
-		</div>
-	</div>
+        <div id="pagination">
+            {{ $favoriteProducts->links('vendor.pagination.default') }}
+        </div>
+    </div>
 @stop
