@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title> Đức Hiếu Shop - @yield('title')</title>
+	<title> TechZone Shop - @yield('title')</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/home.css">
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -218,6 +218,10 @@
             .menu-item a:hover {
                 color: #fff;
             }
+            .product-item img {
+                width: 175px !important;
+                height: 200px !important;
+            }
         </style>
 </head>
 <body>
@@ -232,7 +236,7 @@
 			<div style="flex-wrap: unset !important;" class="row">
 				<div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 					<a style="text-decoration: none;" href="{{ asset('/') }}">
-					    <img style="width: 117px !important;" src="img/home/duchieu-logo.png" alt="">
+					    <img style="width: 168px !important;" src="img/home/logo_mobile.png" alt="">
 					</a>
 				</div>
 
@@ -286,16 +290,22 @@
 
 					<div id="banner-l" class="text-center">
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner_4.webp" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner_1.jpg" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner_5.webp" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner_2.jpg" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner_2.webp" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner_3.jpg" alt="" class="img-thumbnail"></a>
 						</div>
 						<div class="banner-l-item">
-							<a href="{{ asset('/') }}"><img src="img/home/banner_3.webp" alt="" class="img-thumbnail"></a>
+							<a href="{{ asset('/') }}"><img src="img/home/banner_4.jpg" alt="" class="img-thumbnail"></a>
+						</div>
+                        <div class="banner-l-item">
+							<a href="{{ asset('/') }}"><img src="img/home/banner_5.jpg" alt="" class="img-thumbnail"></a>
+						</div>
+                        <div class="banner-l-item">
+							<a href="{{ asset('/') }}"><img src="img/home/banner_6.jpg" alt="" class="img-thumbnail"></a>
 						</div>
 					</div>
 				</div>
@@ -315,13 +325,16 @@
 							<!-- The slideshow -->
 							<div class="carousel-inner">
 								<div class="carousel-item active">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider_1.webp" alt="Banner" >
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider_1.png" alt="Banner" >
 								</div>
 								<div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider_2.webp" alt="Banner">
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider_2.jpg" alt="Banner">
 								</div>
 								<div class="carousel-item">
-									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider_3.webp" alt="Banner" >
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider_3.jpg" alt="Banner" >
+								</div>
+                                <div class="carousel-item">
+									<img style="border-radius: 3px;" width="900px" height="400px" src="img/home/slider_4.jpg" alt="Banner" >
 								</div>
 							</div>
 
@@ -352,18 +365,18 @@
                     <div class="row">
                         <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 							<a style="text-decoration: none;" href="{{ asset('/') }}">
-                                <img style="width: 145px !important;" src="img/home/duchieu-logo.png" alt="">
+                                <img style="width: 160px !important;" src="img/home/logo_mobile.png" alt="">
                             </a>
                         </div>
                         <div id="about" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>About us</h3>
-                            <p class="text-justify"> Đức Hiếu Shop thành lập năm 2024. Chúng tôi là cửa hàng bán quần áo uy tín hàng đầu Việt Nam cũng như trên toàn thế giới.</p>
+                            <p class="text-justify"> TechZone Shop thành lập năm 2025. Chúng tôi là cửa hàng bán giày uy tín hàng đầu Việt Nam cũng như trên toàn thế giới.</p>
                         </div>
                         <div id="hotline" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>Hotline</h3>
                             <p>Phone1: (+84) 934155611</p>
                             <p>Phone2: (+84) 523514521</p>
-                            <p>Email: duchieushop@gmail.com</p>
+                            <p>Email: techzoneshop@gmail.com</p>
                         </div>
                         <div id="contact" class="col-md-3 col-sm-12 col-xs-12">
                             <h3>Contact Us</h3>

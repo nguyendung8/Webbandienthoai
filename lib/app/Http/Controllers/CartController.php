@@ -63,11 +63,11 @@ class CartController extends Controller
         $data['cart'] = Cart::content();
         $data['total'] = Cart::total();
         Mail::send('frontend.email', $data, function ($message) use ($email, $name) {
-            $message->from('dungli1221@gmail.com', 'Đức Hiếu');
+            $message->from('dungli1221@gmail.com', 'TechZone');
 
             $message->to($email, $name);
 
-            $message->subject('Xác nhận hóa đơn mua hàng Đức Hiếu Shop');
+            $message->subject('Xác nhận hóa đơn mua hàng TechZone Shop');
 
         });
         Cart::destroy();
